@@ -49,25 +49,18 @@ This report covers merged changes and newly opened issues since the baseline. Di
 
 ## Xeon recipe changes and issues
 
-The Xeon-specific recipe activity in this reporting window is concentrated in merged PR [#961](https://github.com/vllm-project/recipes/pull/961). It adds or corrects Intel Xeon CPU Docker commands, normalizes CPU image usage, and improves Xeon deployment instructions across 26 model recipes.
+The following upstream `vllm` changes and issues may require new or revised Xeon recipes. These are recipe-impact candidates, not a status list; each recommended action should be validated on Xeon before changing a recipe.
 
-| Recipe family | Recipes changed for Xeon CPU deployment |
-| --- | --- |
-| Google | `diffusiongemma-26B-A4B-it`, `gemma-4-26B-A4B-it`, `gemma-4-E2B-it`, `gemma-4-E4B-it` |
-| Qwen | `QwQ-32B`, `Qwen2.5-VL-7B-Instruct`, `Qwen3-1.7B`, `Qwen3-4B`, `Qwen3-8B`, `Qwen3-14B`, `Qwen3-30B-A3B`, `Qwen3-VL-30B-A3B-Instruct`, `Qwen3.5-4B`, `Qwen3.5-35B-A3B` |
-| Meta Llama | `Llama-3.1-8B`, `Llama-3.1-8B-Instruct`, `Llama-3.2-1B`, `Llama-3.2-1B-Instruct`, `Llama-3.2-3B-Instruct`, `Llama-3.3-70B-Instruct`, `Llama-4-Scout-17B-16E-Instruct` |
-| Microsoft | `Phi-4-multimodal-instruct`, `Phi-4-reasoning` |
-| OpenAI | `gpt-oss-20b`, `whisper-large-v3` |
-| Z.ai | `glm-4-9b-hf` |
-
-Four Xeon recipe issues remain open at the snapshot time. PR #961 includes changes to each named recipe and therefore appears to address the reported missing Docker commands, but the issue links remain authoritative until maintainers close or otherwise resolve them.
-
-| Issue | Opened | Xeon recipe concern | Related change in PR #961 |
+| Upstream item | Priority | Xeon recipe impact | Candidate recipe change |
 | --- | --- | --- | --- |
-| [#908](https://github.com/vllm-project/recipes/issues/908) | 2026-09-01 | The `openai/whisper-large-v3` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
-| [#909](https://github.com/vllm-project/recipes/issues/909) | 2026-09-01 | The `zai-org/glm-4-9b-hf` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
-| [#911](https://github.com/vllm-project/recipes/issues/911) | 2026-09-01 | The `microsoft/Phi-4-multimodal-instruct` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
-| [#912](https://github.com/vllm-project/recipes/issues/912) | 2026-09-01 | The `microsoft/Phi-4-reasoning` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
+| [PR #55355](https://github.com/vllm-project/vllm/pull/55355) — DeepSeek-V4 CPU backend | High | The existing `deepseek-ai/DeepSeek-V4-Pro` recipe has GPU entries but no Xeon hardware declaration or CPU launch path. The new CPU backend makes a Xeon recipe path possible. | Validate a supported DeepSeek-V4 checkpoint on Xeon, then add `xeon6` hardware metadata, CPU image/install instructions, topology guidance, and CPU-safe feature defaults. |
+| [PR #56773](https://github.com/vllm-project/vllm/pull/56773) — DeepSeek-R1 FP8 MLA + MoE CPU correctness fix | High | The existing `deepseek-ai/DeepSeek-R1` recipe does not advertise Xeon, although the merged fix specifically targets its CPU execution path. | Validate DeepSeek-R1 on Xeon with a build containing #56773. If successful, add Xeon hardware/topology and Docker guidance and set the minimum vLLM version to the first release containing the fix. |
+| [Issue #55005](https://github.com/vllm-project/vllm/issues/55005) — CPU speculative-decoding sampling corruption | High | Non-greedy speculative decoding may be incorrect on CPU. Xeon-enabled recipes exposing speculative decoding include Qwen3.5, Gemma 4, and Llama 3.1 recipes. | Until fixed and validated, suppress speculative-decoding options for `xeon6` or add an explicit CPU limitation warning. Re-enable them only with a minimum-version guard for the fix. |
+| [Issue #55560](https://github.com/vllm-project/vllm/issues/55560) — Qwen3.5 MoE NaNs under `torch.compile` on CPU | High | `Qwen/Qwen3.5-35B-A3B` is marked verified on Xeon 6 and is directly exposed to this MoE correctness issue. | Revalidate the Xeon configuration; add a temporary Xeon `--enforce-eager` override or known-issue warning if it avoids the failure, then remove the workaround after an upstream fix is released. |
+| [Issue #56419](https://github.com/vllm-project/vllm/issues/56419) — CPU Gated-DeltaNet + MTP structured-output failures | High | Both Xeon-enabled Qwen3.5 recipes (`Qwen3.5-4B` and `Qwen3.5-35B-A3B`) use Gated-DeltaNet and expose MTP speculative decoding. | Disable or warn against the MTP-plus-structured-output combination on Xeon, and add a regression-validation note before restoring the combination. |
+| [Issue #55613](https://github.com/vllm-project/vllm/issues/55613) — WNA16 int4 unavailable on AVX2-only CPUs | Conditional | Current Xeon 5/6 recipe targets provide AVX-512, so existing recipes do not need a workaround. This becomes relevant if recipes expand to older AVX2-only Xeon systems. | If older Xeon generations are added, document the ISA requirement and exclude AWQ/GPTQ WNA16 int4 variants where the required kernel is unavailable. |
+
+Merged recipes PR [#961](https://github.com/vllm-project/recipes/pull/961) remains the concrete Xeon recipe change in this window: it adds or corrects CPU Docker commands across 26 recipes. The table above identifies the next likely recipe work created by `vllm` runtime changes and defects.
 
 ## Snapshot notes
 
