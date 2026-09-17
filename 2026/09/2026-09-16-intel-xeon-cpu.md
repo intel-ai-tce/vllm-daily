@@ -47,16 +47,27 @@ This report covers merged changes and newly opened issues since the baseline. Di
 | [#56507](https://github.com/vllm-project/vllm/issues/56507) | 2026-09-11 | The EC CPU connector documentation references a no-NIXL import test that does not exist. | `kv-connector` |
 | [#56871](https://github.com/vllm-project/vllm/issues/56871) | 2026-09-14 | CPU KV-offload capacity is divided incorrectly across cache groups on hybrid models. | — |
 
-## Open `vllm-project/recipes` Xeon issues
+## Xeon recipe changes and issues
 
-These issues remain open at the snapshot time. PR [#961](https://github.com/vllm-project/recipes/pull/961) appears to address their missing Docker-command reports, but the issue links remain authoritative until maintainers close or otherwise resolve them.
+The Xeon-specific recipe activity in this reporting window is concentrated in merged PR [#961](https://github.com/vllm-project/recipes/pull/961). It adds or corrects Intel Xeon CPU Docker commands, normalizes CPU image usage, and improves Xeon deployment instructions across 26 model recipes.
 
-| Issue | Opened | Summary |
-| --- | --- | --- |
-| [#908](https://github.com/vllm-project/recipes/issues/908) | 2026-09-01 | The `openai/whisper-large-v3` Xeon 6 recipe is incomplete. |
-| [#909](https://github.com/vllm-project/recipes/issues/909) | 2026-09-01 | The `zai-org/glm-4-9b-hf` Xeon 6 recipe is incomplete. |
-| [#911](https://github.com/vllm-project/recipes/issues/911) | 2026-09-01 | The `microsoft/Phi-4-multimodal-instruct` Xeon 6 recipe is incomplete. |
-| [#912](https://github.com/vllm-project/recipes/issues/912) | 2026-09-01 | The `microsoft/Phi-4-reasoning` Xeon 6 recipe is incomplete. |
+| Recipe family | Recipes changed for Xeon CPU deployment |
+| --- | --- |
+| Google | `diffusiongemma-26B-A4B-it`, `gemma-4-26B-A4B-it`, `gemma-4-E2B-it`, `gemma-4-E4B-it` |
+| Qwen | `QwQ-32B`, `Qwen2.5-VL-7B-Instruct`, `Qwen3-1.7B`, `Qwen3-4B`, `Qwen3-8B`, `Qwen3-14B`, `Qwen3-30B-A3B`, `Qwen3-VL-30B-A3B-Instruct`, `Qwen3.5-4B`, `Qwen3.5-35B-A3B` |
+| Meta Llama | `Llama-3.1-8B`, `Llama-3.1-8B-Instruct`, `Llama-3.2-1B`, `Llama-3.2-1B-Instruct`, `Llama-3.2-3B-Instruct`, `Llama-3.3-70B-Instruct`, `Llama-4-Scout-17B-16E-Instruct` |
+| Microsoft | `Phi-4-multimodal-instruct`, `Phi-4-reasoning` |
+| OpenAI | `gpt-oss-20b`, `whisper-large-v3` |
+| Z.ai | `glm-4-9b-hf` |
+
+Four Xeon recipe issues remain open at the snapshot time. PR #961 includes changes to each named recipe and therefore appears to address the reported missing Docker commands, but the issue links remain authoritative until maintainers close or otherwise resolve them.
+
+| Issue | Opened | Xeon recipe concern | Related change in PR #961 |
+| --- | --- | --- | --- |
+| [#908](https://github.com/vllm-project/recipes/issues/908) | 2026-09-01 | The `openai/whisper-large-v3` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
+| [#909](https://github.com/vllm-project/recipes/issues/909) | 2026-09-01 | The `zai-org/glm-4-9b-hf` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
+| [#911](https://github.com/vllm-project/recipes/issues/911) | 2026-09-01 | The `microsoft/Phi-4-multimodal-instruct` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
+| [#912](https://github.com/vllm-project/recipes/issues/912) | 2026-09-01 | The `microsoft/Phi-4-reasoning` Xeon 6 recipe is incomplete. | Adds the missing Xeon CPU Docker launch guidance. |
 
 ## Snapshot notes
 
