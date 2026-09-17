@@ -19,22 +19,40 @@ jobs:
     steps:
       - name: Send Teams notification
         env:
+          GH_TOKEN: ${{ github.token }}
           TEAMS_WEBHOOK_URL: ${{ secrets.TEAMS_WEBHOOK_URL }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           MERGED_BY: ${{ github.event.pull_request.merged_by.login }}
+          MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
         run: |
           if [[ -z "$TEAMS_WEBHOOK_URL" ]]; then
             echo "TEAMS_WEBHOOK_URL is not configured" >&2
             exit 1
           fi
 
+          mapfile -t report_paths < <(
+            gh api --paginate \
+              "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              --jq '.[] | select(.filename | endswith("-intel-xeon-cpu.md")) | .filename'
+          )
+          report_path="${report_paths[0]:-}"
+
+          if [[ -z "$report_path" ]]; then
+            echo "No Xeon Markdown report was found in PR #${PR_NUMBER}" >&2
+            exit 1
+          fi
+
+          report_url="https://github.com/${GITHUB_REPOSITORY}/blob/${MERGE_SHA}/${report_path}"
+
           payload="$(
             jq -n \
               --arg title "$PR_TITLE" \
               --arg url "$PR_URL" \
+              --arg report_path "$report_path" \
+              --arg report_url "$report_url" \
               --arg author "$PR_AUTHOR" \
               --arg number "$PR_NUMBER" \
               --arg merged_by "$MERGED_BY" \
@@ -58,6 +76,7 @@ jobs:
                   {
                     type: "FactSet",
                     facts: [
+                      {title: "Report", value: $report_path},
                       {title: "Author", value: ("@" + $author)},
                       {title: "Merged by", value: ("@" + $merged_by)}
                     ]
@@ -68,6 +87,11 @@ jobs:
                     type: "Action.OpenUrl",
                     title: "View pull request",
                     url: $url
+                  },
+                  {
+                    type: "Action.OpenUrl",
+                    title: "View Markdown report",
+                    url: $report_url
                   }
                 ]
               }'
