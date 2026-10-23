@@ -22,7 +22,9 @@ actual GPU use.
 
 History is appended atomically to
 `data/vllm-downloads/vllm_download_history.csv`; the most recent state is written
-atomically to `data/vllm-downloads/latest.json`. A failed source does not stop
+atomically to `data/vllm-downloads/latest.json`. A readable summary and collection
+methodology are written to `data/vllm-downloads/report.md` and displayed directly
+on every workflow run's **Summary** page. A failed source does not stop
 healthy sources. Its previous latest metrics are retained with `"stale": true`,
 and warnings make the partial collection explicit. An incomplete GitHub pagination
 batch is discarded rather than reported as an all-time total.
@@ -30,6 +32,6 @@ batch is discarded rather than reported as an all-time total.
 The workflow needs **Actions → General → Workflow permissions → Read and write
 permissions** and permission for GitHub Actions to create pull requests. It first
 attempts to commit to `main`. If branch protection rejects that push, it updates
-the persistent `automation/vllm-download-statistics-data` branch and opens or
+the persistent `automation/vllm-download-statistics-report` branch and opens or
 updates a pull request without weakening protection. Run artifacts are retained
 for 30 days as an additional recovery and inspection aid.

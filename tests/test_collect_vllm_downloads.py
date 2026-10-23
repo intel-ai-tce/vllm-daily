@@ -96,6 +96,21 @@ class CollectorTests(unittest.TestCase):
             collector.collect_pypi_bigquery(lambda *args: None, errors, None, 1)
         self.assertIn("optional", errors[0])
 
+    def test_markdown_report_has_summary_and_methodology(self):
+        row = dict(zip(collector.FIELDS, [
+            "2026-10-23T09:15:00+00:00", "docker_hub", "total_pulls",
+            "vllm-openai-cpu", 1234, "repository counter",
+        ]))
+        report = collector.render_markdown_report(
+            "2026-10-23T09:15:00+00:00", [dict(row, stale=False)], []
+        )
+        self.assertIn(
+            "| docker_hub | total_pulls | vllm-openai-cpu | 1,234 | current run |", report
+        )
+        self.assertIn("## How these statistics are gathered", report)
+        self.assertIn("nightly and non-release tags", report)
+        self.assertIn("not unique users", report)
+
 
 if __name__ == "__main__":
     unittest.main()
