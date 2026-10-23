@@ -275,7 +275,43 @@ def markdown_escape(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
-def render_markdown_report(timestamp, rows, errors):
+def monthly_changes(history):
+    """Compare the earliest summary snapshots in the latest two observed months."""
+    snapshots = {}
+    for row in history:
+        if row["metric"] == "wheel_downloads":
+            continue
+        try:
+            observed = dt.datetime.fromisoformat(row["timestamp_utc"])
+            month = (observed.year, observed.month)
+            count = int(row["count"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        timestamp = row["timestamp_utc"]
+        key = metric_key(row)
+        snapshots.setdefault(month, {}).setdefault(timestamp, {})[key] = count
+    if len(snapshots) < 2:
+        return None
+    previous_month, current_month = sorted(snapshots)[-2:]
+    previous_time = min(snapshots[previous_month])
+    current_time = min(snapshots[current_month])
+    previous = snapshots[previous_month][previous_time]
+    current = snapshots[current_month][current_time]
+    changes = []
+    for key in sorted(previous.keys() & current.keys()):
+        changes.append((key, current[key] - previous[key]))
+    previous_date = dt.datetime.fromisoformat(previous_time).date()
+    current_date = dt.datetime.fromisoformat(current_time).date()
+    complete_month = previous_date.day == 1 and current_date.day == 1
+    return {
+        "start": previous_date.isoformat(),
+        "end": current_date.isoformat(),
+        "complete": complete_month,
+        "changes": changes,
+    }
+
+
+def render_markdown_report(timestamp, rows, errors, history=None):
     """Build the human-readable report used in the repository and run summary."""
     summary_rows = [row for row in rows if row["metric"] != "wheel_downloads"]
     lines = [
@@ -297,6 +333,32 @@ def render_markdown_report(timestamp, rows, errors):
             )
     else:
         lines.append("| — | — | No statistics are available | — | — |")
+    lines.extend(["", "## Previous monthly activity", ""])
+    monthly = monthly_changes(history or [])
+    if monthly is None:
+        lines.append(
+            "Not available yet. Two monthly boundary snapshots are required; tracking "
+            "started on October 23, 2026."
+        )
+    else:
+        period_type = "complete calendar month" if monthly["complete"] else "partial baseline period"
+        lines.extend([
+            f"Period: **{monthly['start']} to {monthly['end']}** ({period_type}).", "",
+            "| Source | Metric | Distribution / architecture | Events during period |",
+            "| --- | --- | --- | ---: |",
+        ])
+        if monthly["changes"]:
+            for (source, metric, label), change in monthly["changes"]:
+                display = f"{change:,}" if change >= 0 else "counter reset/decreased"
+                lines.append(
+                    f"| {markdown_escape(source)} | {markdown_escape(metric)} | "
+                    f"{markdown_escape(label)} | {display} |"
+                )
+        else:
+            lines.append("| — | — | No comparable source observations | — |")
+    lines.extend(["", "Monthly activity is the difference between cumulative counters at "
+                  "successive month-boundary snapshots; it is not reconstructed from current totals."])
+
     lines.extend(["", "## Warnings", ""])
     if errors:
         lines.extend(f"- {markdown_escape(error)}" for error in errors)
@@ -407,7 +469,9 @@ def run(args, session=None, now=None):
         atomic_write_latest(latest_path, timestamp, rows, errors)
         atomic_write_text(
             report_path,
-            render_markdown_report(timestamp, read_previous_latest(latest_path), errors),
+            render_markdown_report(
+                timestamp, read_previous_latest(latest_path), errors, existing + rows
+            ),
         )
     except (OSError, ValueError, csv.Error) as exc:
         print(f"ERROR: could not persist output: {exc}", file=sys.stderr)

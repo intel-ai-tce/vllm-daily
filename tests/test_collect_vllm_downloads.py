@@ -111,6 +111,41 @@ class CollectorTests(unittest.TestCase):
         self.assertIn("nightly and non-release tags", report)
         self.assertIn("not unique users", report)
 
+    def test_monthly_changes_and_partial_baseline(self):
+        def row(timestamp, count):
+            return dict(zip(collector.FIELDS, [
+                timestamp, "docker_hub", "total_pulls", "vllm-openai-cpu", count, "note",
+            ]))
+
+        result = collector.monthly_changes([
+            row("2026-10-23T09:15:00+00:00", 100),
+            row("2026-11-01T09:20:00+00:00", 145),
+        ])
+        self.assertEqual(result["changes"][0][1], 45)
+        self.assertFalse(result["complete"])
+        report = collector.render_markdown_report(
+            "2026-11-01T09:20:00+00:00", [], [], [
+                row("2026-10-23T09:15:00+00:00", 100),
+                row("2026-11-01T09:20:00+00:00", 145),
+            ]
+        )
+        self.assertIn("partial baseline period", report)
+        self.assertIn("| docker_hub | total_pulls | vllm-openai-cpu | 45 |", report)
+
+    def test_complete_month_uses_month_boundary_snapshots(self):
+        def row(timestamp, count):
+            return dict(zip(collector.FIELDS, [
+                timestamp, "docker_hub", "total_pulls", "vllm-openai", count, "note",
+            ]))
+
+        result = collector.monthly_changes([
+            row("2026-11-01T09:20:00+00:00", 1000),
+            row("2026-11-09T09:15:00+00:00", 1100),
+            row("2026-12-01T09:20:00+00:00", 1300),
+        ])
+        self.assertTrue(result["complete"])
+        self.assertEqual(result["changes"][0][1], 300)
+
 
 if __name__ == "__main__":
     unittest.main()

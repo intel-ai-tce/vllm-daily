@@ -1,7 +1,8 @@
 # vLLM download statistics
 
 The weekly workflow records cumulative distribution counters every Monday at
-09:15 UTC and can
+09:15 UTC. It also records a month-boundary snapshot on the first day of every
+month at 09:20 UTC and can
 also be run from **Actions → Collect vLLM download statistics → Run workflow**.
 
 The default run needs only Python, `requests`, and the repository-provided
@@ -25,7 +26,10 @@ History is appended atomically to
 `data/vllm-downloads/vllm_download_history.csv`; the most recent state is written
 atomically to `data/vllm-downloads/latest.json`. A readable summary and collection
 methodology are written to `data/vllm-downloads/report.md` and displayed directly
-on every workflow run's **Summary** page. A failed source does not stop
+on every workflow run's **Summary** page. The report calculates previous-month
+activity by subtracting successive month-boundary cumulative snapshots. The first
+period is explicitly marked partial because the initial baseline was collected on
+October 23, 2026; older months cannot be reconstructed. A failed source does not stop
 healthy sources. Its previous latest metrics are retained with `"stale": true`,
 and warnings make the partial collection explicit. An incomplete GitHub pagination
 batch is discarded rather than reported as an all-time total.
