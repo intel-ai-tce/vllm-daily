@@ -1,6 +1,7 @@
 # vLLM download statistics
 
-The daily workflow records cumulative distribution counters at 09:15 UTC and can
+The weekly workflow records cumulative distribution counters every Monday at
+09:15 UTC and can
 also be run from **Actions → Collect vLLM download statistics → Run workflow**.
 
 The default run needs only Python, `requests`, and the repository-provided
