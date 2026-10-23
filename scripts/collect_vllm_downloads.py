@@ -213,7 +213,7 @@ def atomic_write_csv(path, existing, rows):
             mode="w", dir=path.parent, suffix=".tmp", delete=False, encoding="utf-8", newline=""
         ) as stream:
             temporary = Path(stream.name)
-            writer = csv.DictWriter(stream, fieldnames=FIELDS)
+            writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
             writer.writeheader()
             writer.writerows(combined)
             stream.flush()
@@ -263,6 +263,80 @@ def atomic_write_latest(path, timestamp, fresh_rows, errors):
             temporary = Path(stream.name)
             json.dump(payload, stream, indent=2)
             stream.write("\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
+def markdown_escape(value):
+    return str(value).replace("|", "\\|").replace("\n", " ")
+
+
+def render_markdown_report(timestamp, rows, errors):
+    """Build the human-readable report used in the repository and run summary."""
+    summary_rows = [row for row in rows if row["metric"] != "wheel_downloads"]
+    lines = [
+        "# vLLM download statistics", "", f"Collected at **{markdown_escape(timestamp)}**.", "",
+        f"Status: **{'complete' if not errors else 'partial'}** "
+        f"({len(errors)} warning{'s' if len(errors) != 1 else ''}).", "",
+        "## Cumulative totals", "",
+        "| Source | Metric | Distribution / architecture | Count | Freshness |",
+        "| --- | --- | --- | ---: | --- |",
+    ]
+    if summary_rows:
+        for row in summary_rows:
+            lines.append(
+                "| {source} | {metric} | {label} | {count:,} | {freshness} |".format(
+                    source=markdown_escape(row["source"]), metric=markdown_escape(row["metric"]),
+                    label=markdown_escape(row["label"]), count=int(row["count"]),
+                    freshness="previous successful value" if row.get("stale") else "current run",
+                )
+            )
+    else:
+        lines.append("| — | — | No statistics are available | — | — |")
+    lines.extend(["", "## Warnings", ""])
+    if errors:
+        lines.extend(f"- {markdown_escape(error)}" for error in errors)
+    else:
+        lines.append("No collection warnings.")
+    lines.extend([
+        "", "## How these statistics are gathered", "",
+        "- **Docker Hub CPU inference:** the collector reads the repository-wide cumulative "
+        "`pull_count` for `vllm/vllm-openai-cpu` from the Docker Hub API.",
+        "- **Docker Hub overall/GPU-oriented distribution:** it separately reads the "
+        "repository-wide cumulative `pull_count` for `vllm/vllm-openai`.",
+        "- **GitHub CPU wheels:** it paginates every release from `vllm-project/vllm`, keeps "
+        "published non-draft, non-prerelease wheel assets whose version contains `+cpu`, and "
+        "sums each asset's `download_count` into x86-64, ARM64, or other.",
+        "- **AWS ECR:** CPU image counters are included only when manually supplied with "
+        "`--ecr-cpu` or `--ecr-arm64`; the collector never invents a value.",
+        "- **PyPI:** disabled by default. The optional BigQuery mode counts standard vLLM "
+        "wheel downloads by host architecture, not CPU-only inference or actual GPU use.",
+        "", "## Interpretation and reliability", "",
+        "Counts are cumulative pull/download events, not unique users, installations, "
+        "running deployments, or hardware utilization. Docker Hub's repository counter can "
+        "include nightly and non-release tags. If GitHub pagination is incomplete, the entire "
+        "GitHub batch is discarded rather than reporting a misleading total. When an individual "
+        "source fails, its previous successful value is retained and marked as stale while "
+        "healthy sources are still recorded.", "",
+        "Detailed per-wheel observations are available in `latest.json`; time-series history "
+        "is stored in `vllm_download_history.csv`.", "",
+    ])
+    return "\n".join(lines)
+
+
+def atomic_write_text(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", dir=path.parent, suffix=".tmp", delete=False, encoding="utf-8"
+        ) as stream:
+            temporary = Path(stream.name)
+            stream.write(content)
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(temporary, path)
@@ -325,11 +399,16 @@ def run(args, session=None, now=None):
     folder = Path(args.out)
     csv_path = folder / "vllm_download_history.csv"
     latest_path = folder / "latest.json"
+    report_path = folder / "report.md"
     try:
         existing = read_csv(csv_path)
         if rows:
             atomic_write_csv(csv_path, existing, rows)
         atomic_write_latest(latest_path, timestamp, rows, errors)
+        atomic_write_text(
+            report_path,
+            render_markdown_report(timestamp, read_previous_latest(latest_path), errors),
+        )
     except (OSError, ValueError, csv.Error) as exc:
         print(f"ERROR: could not persist output: {exc}", file=sys.stderr)
         return 1

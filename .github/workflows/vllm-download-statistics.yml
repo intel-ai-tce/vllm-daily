@@ -25,7 +25,7 @@ jobs:
       - name: Restore protected-branch history if present
         shell: bash
         run: |
-          data_branch="automation/vllm-download-statistics-data"
+          data_branch="automation/vllm-download-statistics-report"
           if git fetch origin "${data_branch}:refs/remotes/origin/${data_branch}"; then
             git checkout "origin/${data_branch}" -- data/vllm-downloads || true
           fi
@@ -41,6 +41,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/collect_vllm_downloads.py
+
+      - name: Publish run summary
+        shell: bash
+        run: cat data/vllm-downloads/report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload collection outputs
         uses: actions/upload-artifact@v4
@@ -64,12 +68,15 @@ jobs:
           git add data/vllm-downloads
           git commit -m "Update vLLM download statistics"
 
+          report_branch="automation/vllm-download-statistics-report"
+          git push --force-with-lease origin "HEAD:refs/heads/${report_branch}"
+
           if git push origin HEAD:main; then
             exit 0
           fi
 
           echo "Direct push was blocked; persisting through an automation PR"
-          data_branch="automation/vllm-download-statistics-data"
+          data_branch="automation/vllm-download-statistics-report"
           git push --force-with-lease origin "HEAD:refs/heads/${data_branch}"
           if [[ -z "$(gh pr list --head "${data_branch}" --base main --state open --json number --jq '.[0].number')" ]]; then
             gh pr create \
