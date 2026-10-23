@@ -14,6 +14,12 @@ Status: **complete** (0 warnings).
 | github_releases | wheel_downloads_total | aarch64 | 83,756 | current run |
 | github_releases | wheel_downloads_total | other | 0 | current run |
 
+## Previous monthly activity
+
+Not available yet. Two monthly boundary snapshots are required; tracking started on October 23, 2026.
+
+Monthly activity is the difference between cumulative counters at successive month-boundary snapshots; it is not reconstructed from current totals.
+
 ## Warnings
 
 No collection warnings.
