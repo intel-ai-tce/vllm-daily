@@ -1,6 +1,6 @@
 # vLLM download statistics
 
-Collected at **2026-10-26T16:05:31+00:00**.
+Collected at **2026-11-01T16:04:01+00:00**.
 
 Status: **complete** (0 warnings).
 
@@ -8,15 +8,23 @@ Status: **complete** (0 warnings).
 
 | Source | Metric | Distribution / architecture | Count | Freshness |
 | --- | --- | --- | ---: | --- |
-| docker_hub | total_pulls | vllm-openai-cpu | 472,847 | current run |
-| docker_hub | total_pulls | vllm-openai | 41,048,742 | current run |
-| github_releases | wheel_downloads_total | x86_64 | 400,596 | current run |
-| github_releases | wheel_downloads_total | aarch64 | 85,377 | current run |
+| docker_hub | total_pulls | vllm-openai-cpu | 502,744 | current run |
+| docker_hub | total_pulls | vllm-openai | 41,909,251 | current run |
+| github_releases | wheel_downloads_total | x86_64 | 428,559 | current run |
+| github_releases | wheel_downloads_total | aarch64 | 91,505 | current run |
 | github_releases | wheel_downloads_total | other | 0 | current run |
 
 ## Previous monthly activity
 
-Not available yet. Two monthly boundary snapshots are required; tracking started on October 23, 2026.
+Period: **2026-10-23 to 2026-11-01** (partial baseline period).
+
+| Source | Metric | Distribution / architecture | Events during period |
+| --- | --- | --- | ---: |
+| docker_hub | total_pulls | vllm-openai | 1,293,239 |
+| docker_hub | total_pulls | vllm-openai-cpu | 46,605 |
+| github_releases | wheel_downloads_total | aarch64 | 7,754 |
+| github_releases | wheel_downloads_total | other | 0 |
+| github_releases | wheel_downloads_total | x86_64 | 35,638 |
 
 Monthly activity is the difference between cumulative counters at successive month-boundary snapshots; it is not reconstructed from current totals.
 

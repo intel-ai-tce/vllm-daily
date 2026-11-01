@@ -1,371 +1,371 @@
 {
-  "collection_timestamp_utc": "2026-10-26T16:05:31+00:00",
+  "collection_timestamp_utc": "2026-11-01T16:04:01+00:00",
   "status": "complete",
   "warning_count": 0,
   "warnings": [],
   "metrics": [
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "docker_hub",
       "metric": "total_pulls",
       "label": "vllm-openai-cpu",
-      "count": 472847,
+      "count": 502744,
       "notes": "Repository-wide cumulative pulls; may include nightly/non-release tags",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "docker_hub",
       "metric": "total_pulls",
       "label": "vllm-openai",
-      "count": 41048742,
+      "count": 41909251,
       "notes": "Repository-wide cumulative pulls; may include nightly/non-release tags",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.32.0 / vllm-0.32.0+cpu-cp38-abi3-macosx_11_0_arm64.whl",
-      "count": 2083,
+      "count": 4320,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.32.0 / vllm-0.32.0+cpu-cp38-abi3-manylinux_2_39_aarch64.whl",
-      "count": 1471,
+      "count": 3683,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.32.0 / vllm-0.32.0+cpu-cp38-abi3-manylinux_2_39_x86_64.whl",
-      "count": 3306,
+      "count": 9303,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.31.0 / vllm-0.31.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 6070,
+      "count": 6230,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.31.0 / vllm-0.31.0+cpu-cp38-abi3-manylinux_2_39_aarch64.whl",
-      "count": 4668,
+      "count": 5030,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.31.0 / vllm-0.31.0+cpu-cp38-abi3-manylinux_2_39_x86_64.whl",
-      "count": 14953,
+      "count": 17792,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.30.0 / vllm-0.30.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 7163,
+      "count": 7478,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.30.0 / vllm-0.30.0+cpu-cp38-abi3-manylinux_2_39_aarch64.whl",
-      "count": 708,
+      "count": 807,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.30.0 / vllm-0.30.0+cpu-cp38-abi3-manylinux_2_39_x86_64.whl",
-      "count": 4709,
+      "count": 5283,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.29.0 / vllm-0.29.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 3546,
+      "count": 3569,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.29.0 / vllm-0.29.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 7675,
+      "count": 7966,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.29.0 / vllm-0.29.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 16030,
+      "count": 17056,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.28.0 / vllm-0.28.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 4145,
+      "count": 4382,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.28.0 / vllm-0.28.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 1669,
+      "count": 1704,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.28.0 / vllm-0.28.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 7515,
+      "count": 7736,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.1 / vllm-0.27.1+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 3058,
+      "count": 3060,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.1 / vllm-0.27.1+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 5982,
+      "count": 5988,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.1 / vllm-0.27.1+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 9551,
+      "count": 9578,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.0 / vllm-0.27.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 366,
+      "count": 367,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.0 / vllm-0.27.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 38,
+      "count": 40,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.27.0 / vllm-0.27.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 1311,
+      "count": 1324,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.26.0 / vllm-0.26.0+cpu-cp312-cp312-macosx_11_0_arm64.whl",
-      "count": 2995,
+      "count": 3006,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.26.0 / vllm-0.26.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 7638,
+      "count": 7673,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.26.0 / vllm-0.26.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 10456,
+      "count": 10621,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.25.1 / vllm-0.25.1+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 3383,
+      "count": 3387,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.25.1 / vllm-0.25.1+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 10297,
+      "count": 10845,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.25.0 / vllm-0.25.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 139,
+      "count": 140,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.25.0 / vllm-0.25.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 1150,
+      "count": 1154,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.24.0 / vllm-0.24.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 183,
+      "count": 191,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.24.0 / vllm-0.24.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 8895,
+      "count": 9302,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.23.0 / vllm-0.23.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 1534,
+      "count": 1554,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.23.0 / vllm-0.23.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 223015,
+      "count": 238596,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.22.1 / vllm-0.22.1+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 121,
+      "count": 124,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.22.1 / vllm-0.22.1+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 1361,
+      "count": 1368,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.22.0 / vllm-0.22.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 103,
+      "count": 105,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.22.0 / vllm-0.22.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 2253,
+      "count": 2256,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.21.0 / vllm-0.21.0+cpu-cp38-abi3-manylinux_2_34_aarch64.whl",
-      "count": 238,
+      "count": 239,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.21.0 / vllm-0.21.0+cpu-cp38-abi3-manylinux_2_34_x86_64.whl",
-      "count": 14390,
+      "count": 14502,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.2 / vllm-0.20.2+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -374,16 +374,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.2 / vllm-0.20.2+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2242,
+      "count": 2333,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.1 / vllm-0.20.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -392,16 +392,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.1 / vllm-0.20.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2205,
+      "count": 2209,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.0 / vllm-0.20.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -410,16 +410,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.20.0 / vllm-0.20.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2084,
+      "count": 2096,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.19.1 / vllm-0.19.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -428,52 +428,52 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.19.1 / vllm-0.19.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 36685,
+      "count": 36721,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.19.0 / vllm-0.19.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
-      "count": 251,
+      "count": 259,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.19.0 / vllm-0.19.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 3636,
+      "count": 3638,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.18.1 / vllm-0.18.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
-      "count": 241,
+      "count": 287,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.18.1 / vllm-0.18.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 4010,
+      "count": 4219,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.18.0 / vllm-0.18.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -482,16 +482,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.18.0 / vllm-0.18.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2153,
+      "count": 2160,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.17.1 / vllm-0.17.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -500,34 +500,34 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.17.1 / vllm-0.17.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 1929,
+      "count": 1935,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.17.0 / vllm-0.17.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
-      "count": 79,
+      "count": 85,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.17.0 / vllm-0.17.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2257,
+      "count": 2272,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.16.0 / vllm-0.16.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -536,16 +536,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.16.0 / vllm-0.16.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 1175,
+      "count": 1194,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.15.1 / vllm-0.15.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -554,16 +554,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.15.1 / vllm-0.15.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 6768,
+      "count": 6770,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.15.0 / vllm-0.15.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -572,16 +572,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.15.0 / vllm-0.15.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 767,
+      "count": 768,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.14.1 / vllm-0.14.1+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -590,16 +590,16 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.14.1 / vllm-0.14.1+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 1766,
+      "count": 1787,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.14.0 / vllm-0.14.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
@@ -608,52 +608,52 @@
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.14.0 / vllm-0.14.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 2203,
+      "count": 2212,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.13.0 / vllm-0.13.0+cpu-cp38-abi3-manylinux_2_35_aarch64.whl",
-      "count": 388,
+      "count": 389,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=aarch64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads",
       "label": "v0.13.0 / vllm-0.13.0+cpu-cp38-abi3-manylinux_2_35_x86_64.whl",
-      "count": 1524,
+      "count": 1529,
       "notes": "Official published non-prerelease +cpu wheel; host architecture=x86_64",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads_total",
       "label": "x86_64",
-      "count": 400596,
+      "count": 428559,
       "notes": "All fetched published non-prerelease GitHub release +cpu wheel assets",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads_total",
       "label": "aarch64",
-      "count": 85377,
+      "count": 91505,
       "notes": "All fetched published non-prerelease GitHub release +cpu wheel assets",
       "stale": false
     },
     {
-      "timestamp_utc": "2026-10-26T16:05:31+00:00",
+      "timestamp_utc": "2026-11-01T16:04:01+00:00",
       "source": "github_releases",
       "metric": "wheel_downloads_total",
       "label": "other",
