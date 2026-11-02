@@ -1,6 +1,6 @@
 # vLLM download statistics
 
-Collected at **2026-11-01T16:04:01+00:00**.
+Collected at **2026-11-02T19:26:44+00:00**.
 
 Status: **complete** (0 warnings).
 
@@ -8,10 +8,10 @@ Status: **complete** (0 warnings).
 
 | Source | Metric | Distribution / architecture | Count | Freshness |
 | --- | --- | --- | ---: | --- |
-| docker_hub | total_pulls | vllm-openai-cpu | 502,744 | current run |
-| docker_hub | total_pulls | vllm-openai | 41,909,251 | current run |
-| github_releases | wheel_downloads_total | x86_64 | 428,559 | current run |
-| github_releases | wheel_downloads_total | aarch64 | 91,505 | current run |
+| docker_hub | total_pulls | vllm-openai-cpu | 513,302 | current run |
+| docker_hub | total_pulls | vllm-openai | 42,119,586 | current run |
+| github_releases | wheel_downloads_total | x86_64 | 435,596 | current run |
+| github_releases | wheel_downloads_total | aarch64 | 92,422 | current run |
 | github_releases | wheel_downloads_total | other | 0 | current run |
 
 ## Previous monthly activity
